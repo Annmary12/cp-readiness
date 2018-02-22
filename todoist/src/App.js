@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
 import './App.css';
-import TodoList from './Components/TodoList';
+//import TodoList from './Components/TodoList';
+import Todo from './Components/Todo';
+import AddTodoList from './Components/AddTodoList';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      term: '',
-      items: []
+      todos: [
+        {
+          title: 'Learn Html Syntax',
+          completed: 'True'
+        },
+        {
+          title: 'Learn How to build a web Page with Html',
+          completed: 'False'
+        },
+        {
+          title: 'Learn How to style with CSS',
+          completed: 'True'
+        }
+      ]
     }
   }
 
-  onChange = (event) => {
-    this.setState({term:event.target.value});
+  handleAddTodo = (todo) => {
+    let todos = this.state.todos;
+    todos.push(todo);
+    this.setState({todos:todos});
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    this.setState({
-      term: '',
-      items: [...this.state.items, this.state.term]
-    });
-  }
+  
   render() {
     return (
       <div className="App">
@@ -30,8 +40,11 @@ class App extends Component {
           <h1 className="App-title">Todoist</h1>
         </header><br/><br />
 
-        <form onSubmit={this.onSubmit}>
-          <input value={this.state.term} onChange={this.onChange} />
+        <AddTodoList addTodo = {this.handleAddTodo.bind(this)} />
+        <Todo todos={this.state.todos} />
+
+        {/* <form onSubmit={this.onSubmit}>
+          <input class="form-control" value={this.state.term} onChange={this.onChange} />
           <button>Submit</button>
         </form>
         <TodoList items={this.state.items} />
@@ -51,7 +64,7 @@ class App extends Component {
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
     );
   }

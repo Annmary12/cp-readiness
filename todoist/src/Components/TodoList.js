@@ -1,28 +1,17 @@
-import React from 'react';
-
-const TodoList = props => (
-  <ul>
-    {
-      props.items.map((item, index) => <li key={index}>{item}</li>)
-    }
-  </ul>
-);
-
-export default TodoList;
-
-//import React, { Component } from 'react';
+import React, { Component } from 'react';
 
 
-// class App extends Component {
+class TodoList extends Component {
  
-//   render() {
-//     return (
-//       <div className="TodoList">
+  render() {
+    return (
+      <div className="TodoList">
         
-//       </div>
-//     );
-//   }
-// }
+                  
+      </div>
+    );
+  }
+}
 
 // const TodoList = props => (
 //     <ul>
@@ -33,6 +22,6 @@ export default TodoList;
 
 // );
 
-// export default TodoList;
+ export default TodoList;
 
 
