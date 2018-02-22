@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Search engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<style>
+body{
+    padding-top:180px;
+    padding-bottom:150px;
+    color:#002b36;
+}
+ #text{
+     font-size: 8rem;
+     font-family: monospace;
+     font-style: italic;
+ }  
+
+ #search{
+     font-size: 12px;
+     width: 100%;
+     padding: 10px;
+     box-shadow: 0px 0px 7px 0px #002b36;
+     font-size: 24px;
+ }
+ #addon{
+    box-shadow: 0px 0px 7px 0px #002b36;
+    padding: 18px;
+ }
+ #letter{
+     color:orangered;
+ } 
+</style>
+<body>
+    <div class="container-fluid">
+       <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                    <div class="alert alert-dismissible alert-success" id="alert" style="display:none">
+                            <p class="mb-0" id="message"> </p>
+                          </div>
+            </div>
+       </div>
+       <div class="row">
+           <div class="col-sm-offset-2 col-sm-8">
+               <div class="text-center">
+                    <h1 id="text">Sear<span id="letter">ch</span> Eng<span  id="letter">in</span>e</h1>
+                    <div class="input-group">
+                    <input type="text" id="search" name="search" aria-describedby="basic-addon1" onkeydown="clearMessage()">
+                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="addon" onclick="search()">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                          </span>
+                </div>
+                    
+            </div>
+           </div>
+       </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+
+function search(){
+    
+    var value = document.getElementById('search').value;
+    var message = document.getElementById('message');
+    var alert = document.getElementById('alert');
+    if(value == ""){
+        alert.addClass = "alert-warning";
+        alert.style.display = "block";
+        message.innerHTML = 'Type Something To Search For';
+        value = "";
+       
+        
+    }
+    else{
+        alert.addClass = "alert-success";
+        alert.style.display = "block";
+        message.innerHTML = 'You Typed In '+ value;
+        value = "";
+    }
+    
+}
+function clearMessage()
+{
+    alert.style.display = "none";
+    message.innerHTML = '';
+}
+</script>
+
+</body>
+</html>
